@@ -96,7 +96,9 @@ function(verb = "GET",
                query_args = query,
                canonical_headers = canonical_headers,
                request_body = request_body,
-               key = key, secret = secret, session_token = session_token)
+               key = key, 
+               secret = secret, 
+               session_token = session_token)
         headers[["x-amz-date"]] <- d_timestamp
         headers[["x-amz-content-sha256"]] <- Sig$BodyHash
         if (!is.null(session_token) && session_token != "") {
@@ -216,7 +218,12 @@ function(bucketname,
             url_style <- "virtual"
         }
         # handle region
-        if (region == "us-east-1") {
+        if (region %in% c("us-east-1", "")) {
+            if (region == "") {
+                if (isTRUE(verbose)) {
+                    message("Option 'region' is missing, so 'us-east-1' assumed.")
+                }
+            }
             # handle dualstack
             if (isTRUE(dualstack)) {
                 # handle accelerate
@@ -267,6 +274,7 @@ function(bucketname,
         }
     }
     
+    terminal_slash <- endsWith(path, "/")
     path <- if (path == "") "/" else {
         paste(sapply(
             strsplit(path, '/')[[1]],
@@ -278,6 +286,9 @@ function(bucketname,
         paste0(url, path) 
     } else { 
         paste(url, path, sep = "/") 
+    }
+    if (isTRUE(terminal_slash)) {
+        url <- paste0(url, "/")
     }
     if (isTRUE(verbose)) {
         message(sprintf("S3 Request URL: %s", url))

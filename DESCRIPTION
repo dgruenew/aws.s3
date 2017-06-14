@@ -1,8 +1,8 @@
 Package: aws.s3
 Type: Package
 Title: AWS S3 Client Package
-Version: 0.3.1
-Date: 2017-04-28
+Version: 0.3.3
+Date: 2017-05-24
 Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
                     email = "thosjleeper@gmail.com"),
              person("Boettiger", "Carl", role = "ctb"),
@@ -22,7 +22,7 @@ Imports: utils, tools, httr, xml2 (> 1.0.0), base64enc, digest,
 Suggests: testthat, datasets
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-04-28 13:51:47 UTC; THOMAS
+Packaged: 2017-06-14 21:54:32 UTC; THOMAS
 Author: Thomas J. Leeper [aut, cre],
   Boettiger Carl [ctb],
   Andrew Martin [ctb],
@@ -33,4 +33,4 @@ Author: Thomas J. Leeper [aut, cre],
   Thierry Onkelinx [ctb]
 Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>
 Repository: CRAN
-Date/Publication: 2017-04-28 23:33:07 UTC
+Date/Publication: 2017-06-14 22:12:27 UTC

@@ -36,6 +36,7 @@
 #' 
 #'   # use `headers` for server-side encryption
 #'   ## require appropriate bucket policy
+#'   ## encryption can also be set at the bucket-level using \code{\link{put_encryption}}
 #'   put_object(file = tmp, object = "mtcars.csv", bucket = "myexamplebucket",
 #'              headers = c('x-amz-server-side-encryption' = 'AES256'))
 #' 
@@ -47,7 +48,7 @@
 #'   read.csv(text = rawToChar(get_object(object = "s3://myexamplebucketname/mtcars.csv")))
 #' }
 #' @references \href{http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html}{API Documentation}
-#' @seealso \code{\link{put_bucket}}, \code{\link{get_object}}, \code{\link{delete_object}}
+#' @seealso \code{\link{put_bucket}}, \code{\link{get_object}}, \code{\link{delete_object}}, \code{\link{put_encryption}}
 #' @importFrom utils head
 #' @export
 put_object <- 
@@ -138,7 +139,7 @@ function(file,
 #' @rdname put_object
 #' @export
 put_folder <- function(folder, bucket, ...) {
-    if (!endsWith(folder, "/")) {
+    if (!grepl("/$", folder)) {
         folder <- paste0(folder, "/")
     }
     put_object(raw(0), object = folder, bucket = bucket, ...)

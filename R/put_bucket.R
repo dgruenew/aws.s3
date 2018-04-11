@@ -18,7 +18,7 @@
 #' @references 
 #' \href{http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUT.html}{API Documentation}
 #' \href{https://awspolicygen.s3.amazonaws.com/policygen.html}{AWS Policy Generator}
-#' @seealso \code{\link{bucketlist}}, \code{\link{get_bucket}}, \code{\link{delete_bucket}}, \code{\link{put_object}}
+#' @seealso \code{\link{bucketlist}}, \code{\link{get_bucket}}, \code{\link{delete_bucket}}, \code{\link{put_object}}, \code{\link{put_encryption}}, \code{\link{put_versioning}}
 #' @export
 put_bucket <- 
 function(bucket, 
@@ -28,9 +28,15 @@ function(bucket,
                  "bucket-owner-read", "bucket-owner-full-control"),
          headers = list(), 
          ...){
-    b <- paste0('<CreateBucketConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><LocationConstraint>', 
-                region, '</LocationConstraint></CreateBucketConfiguration>')
-    r <- s3HTTP(verb = "PUT", 
+    if (region == "us-east-1") {
+        b <- NULL
+    } else {
+        b <- paste0('<CreateBucketConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><LocationConstraint>', 
+                    region, '</LocationConstraint></CreateBucketConfiguration>')
+    }
+    acl <- match.arg(acl)
+    headers <- c(list(`x-amz-acl` = acl), headers)
+    ir <- s3HTTP(verb = "PUT", 
                 bucket = bucket,
                 request_body = b,
                 headers = headers,

@@ -1,7 +1,7 @@
 Package: aws.s3
 Type: Package
 Title: 'AWS S3' Client Package
-Version: 0.3.12
+Version: 0.3.12.1
 Date: 2018-05-25
 Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
                     email = "thosjleeper@gmail.com",
@@ -23,7 +23,7 @@ Imports: utils, tools, httr, xml2 (> 1.0.0), base64enc, digest,
 Suggests: testthat, datasets
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2018-05-25 08:29:49 UTC; THOMAS
+Packaged: 2020-01-13 07:36:09 UTC; ripley
 Author: Thomas J. Leeper [aut, cre] (<https://orcid.org/0000-0003-4097-6326>),
   Boettiger Carl [ctb],
   Andrew Martin [ctb],
@@ -32,6 +32,8 @@ Author: Thomas J. Leeper [aut, cre] (<https://orcid.org/0000-0003-4097-6326>),
   Steven Akins [ctb],
   Bao Nguyen [ctb],
   Thierry Onkelinx [ctb]
-Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>
+Maintainer: ORPHANED
 Repository: CRAN
-Date/Publication: 2018-05-25 09:33:38 UTC
+Date/Publication: 2020-01-13 07:38:52 UTC
+X-CRAN-Original-Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>
+X-CRAN-Comment: Orphaned on 2020-01-13 at the maintainer's request.

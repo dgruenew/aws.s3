@@ -4,13 +4,28 @@
 \alias{s3HTTP}
 \title{S3 HTTP Requests}
 \usage{
-s3HTTP(verb = "GET", bucket = "", path = "", query = NULL,
-  headers = list(), request_body = "", write_disk = NULL,
-  accelerate = FALSE, dualstack = FALSE, parse_response = TRUE,
-  check_region = TRUE, url_style = c("path", "virtual"),
+s3HTTP(
+  verb = "GET",
+  bucket = "",
+  path = "",
+  query = NULL,
+  headers = list(),
+  request_body = "",
+  write_disk = NULL,
+  accelerate = FALSE,
+  dualstack = FALSE,
+  parse_response = TRUE,
+  check_region = TRUE,
+  url_style = c("path", "virtual"),
   base_url = Sys.getenv("AWS_S3_ENDPOINT", "s3.amazonaws.com"),
-  verbose = getOption("verbose", FALSE), region = NULL, key = NULL,
-  secret = NULL, session_token = NULL, use_https = TRUE, ...)
+  verbose = getOption("verbose", FALSE),
+  region = NULL,
+  key = NULL,
+  secret = NULL,
+  session_token = NULL,
+  use_https = TRUE,
+  ...
+)
 }
 \arguments{
 \item{verb}{A character string containing an HTTP verb, defaulting to \dQuote{GET}.}

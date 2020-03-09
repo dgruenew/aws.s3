@@ -5,9 +5,16 @@
 \alias{put_folder}
 \title{Put object}
 \usage{
-put_object(file, object, bucket, multipart = FALSE, acl = c("private",
-  "public-read", "public-read-write", "aws-exec-read", "authenticated-read",
-  "bucket-owner-read", "bucket-owner-full-control"), headers = list(), ...)
+put_object(
+  file,
+  object,
+  bucket,
+  multipart = FALSE,
+  acl = c("private", "public-read", "public-read-write", "aws-exec-read",
+    "authenticated-read", "bucket-owner-read", "bucket-owner-full-control"),
+  headers = list(),
+  ...
+)
 
 put_folder(folder, bucket, ...)
 }
@@ -61,7 +68,7 @@ Note that S3 is a flat file store. So there is no folder hierarchy as in a tradi
 
   # use `headers` for server-side encryption
   ## require appropriate bucket policy
-  ## encryption can also be set at the bucket-level using \\code{\\link{put_encryption}}
+  ## encryption can also be set at the bucket-level using \code{\link{put_encryption}}
   put_object(file = tmp, object = "mtcars.csv", bucket = "myexamplebucket",
              headers = c('x-amz-server-side-encryption' = 'AES256'))
 

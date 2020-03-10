@@ -1,5 +1,7 @@
 # AWS S3 Client Package
 
+**NOTE:** This package was orphaned on CRAN, and thus removed. I have forked the repo with minor changes to the description file to allow others to install.
+
 **aws.s3** is a simple client package for the Amazon Web Services (AWS) Simple Storage Service (S3) REST API. While [other packages](https://github.com/ropensci/webservices#amazon) currently connect R to S3, they do so incompletely (mapping only some of the API endpoints to R) and most implementations rely on the AWS command-line tools, which users may not have installed on their system.
 
 To use the package, you will need an AWS account and to enter your credentials into R. Your keypair can be generated on the [IAM Management Console](https://aws.amazon.com/) under the heading *Access Keys*. Note that you only have access to your secret key once. After it is generated, you need to save it in a secure location. New keypairs can be generated at any time if yours has been lost, stolen, or forgotten. The [**aws.iam** package](https://github.com/cloudyr/aws.iam) profiles tools for working with IAM, including creating roles, users, groups, and credentials programmatically; it is not needed to *use* IAM credentials.
@@ -92,30 +94,11 @@ put_object(file = "mtcars.Rdata", object = "mtcars2.Rdata", bucket = "my_bucket"
 
 ## Installation
 
-[![CRAN](https://www.r-pkg.org/badges/version/aws.s3)](https://cran.r-project.org/package=aws.s3)
-![Downloads](https://cranlogs.r-pkg.org/badges/aws.s3)
-[![Build Status](https://travis-ci.org/cloudyr/aws.s3.png?branch=master)](https://travis-ci.org/cloudyr/aws.s3)
-[![codecov.io](https://codecov.io/github/cloudyr/aws.s3/coverage.svg?branch=master)](https://codecov.io/github/cloudyr/aws.s3?branch=master)
-
-This package is not yet on CRAN. To install the latest development version you can install from the cloudyr drat repository:
-
-```R
-# latest stable version
-install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
-
-# on windows you may need:
-install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"), INSTALL_opts = "--no-multiarch")
-```
-
-Or, to pull a potentially unstable version directly from GitHub:
+Since this package has been orphaned, it is no longer on CRAN.  Please install directly from here:
 
 ```R
 if (!require("remotes")) {
     install.packages("remotes")
 }
-remotes::install_github("cloudyr/aws.s3")
+remotes::install_github("dgruenew/aws.s3")
 ```
-
-
----
-[![cloudyr project logo](http://i.imgur.com/JHS98Y7.png)](https://github.com/cloudyr)
